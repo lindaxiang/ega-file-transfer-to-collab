@@ -1,3 +1,6 @@
-#/usr/bin/env python
+#!/usr/bin/env python
+import json
 
-# to be implemented
+with open('output.json', 'w') as f:
+  f.write(json.dumps({"task": "upload"}))
+

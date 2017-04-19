@@ -1,3 +1,6 @@
-#/usr/bin/env python
+#!/usr/bin/env python
 
-# to be implemented
+import json
+
+with open('output.json', 'w') as f:
+  f.write(json.dumps({"task": "download"}))
