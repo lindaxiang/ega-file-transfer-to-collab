@@ -1,83 +1,3 @@
-jtracker_git_repo:
-  url: https://github.com/junjun-zhang/ega-file-transfer-to-collab
-
-
-# A workflow is made up with one or more tasks
-# Each task can have its own docker imagine if desirablebbvv
-tasks:
-  prepare_metadata_xml:
-    command: prepare_metadata_xml.py
-    input:
-      project_code:
-        type: string
-      dataset_id:
-        type: string
-      submitter_sample_id:
-        type: string
-      metadata_git_repo:
-        type: string
-      metadata_path:
-        type: string
-    output:
-      xml_file_name:
-        type: string
-      xml_file_size:
-        type: integer
-      xml_file_md5sum:
-        type: string
-
-  download:
-    command: download.py
-    input:
-      files:
-        type: array
-        items:
-          type: object
-          properties:
-            ega_file_id:
-              type: string
-            file_name:
-              type: string
-
-  md5sum_check:
-    command: md5sum_check.py
-    input:
-      files:
-        type: array
-        items:
-          type: object
-          properties:
-            file_name:
-              type: string
-            file_size:
-              type: integer
-            file_md5sum:
-              type: string
-
-  upload:
-    command: upload.py
-    input:
-      project_code:
-        type: string
-      ega_files:
-        type: array
-        items:
-          type: object
-          properties:
-            file_name:
-              type: string
-            file_md5sum:
-              type: string
-            object_id:
-              type: string
-      xml_file_name:
-        type: string
-      xml_file_size:
-        type: integer
-      xml_file_md5sum:
-        type: string
-
-
 workflow:
   name:  ega-file-transfer-to-collab
   version: "0.3.0"
@@ -165,5 +85,81 @@ workflow:
       depends_on:
       - prepare_metadata_xml@completed
       - md5sum_check@completed
+
+
+# A workflow is made up with one or more tasks
+# Each task can have its own docker imagine if desirablebbvv
+tasks:
+  prepare_metadata_xml:
+    command: prepare_metadata_xml.py
+    input:
+      project_code:
+        type: string
+      dataset_id:
+        type: string
+      submitter_sample_id:
+        type: string
+      metadata_git_repo:
+        type: string
+      metadata_path:
+        type: string
+    output:
+      xml_file_name:
+        type: string
+      xml_file_size:
+        type: integer
+      xml_file_md5sum:
+        type: string
+
+  download:
+    command: download.py
+    input:
+      files:
+        type: array
+        items:
+          type: object
+          properties:
+            ega_file_id:
+              type: string
+            file_name:
+              type: string
+
+  md5sum_check:
+    command: md5sum_check.py
+    input:
+      files:
+        type: array
+        items:
+          type: object
+          properties:
+            file_name:
+              type: string
+            file_size:
+              type: integer
+            file_md5sum:
+              type: string
+
+  upload:
+    command: upload.py
+    input:
+      project_code:
+        type: string
+      ega_files:
+        type: array
+        items:
+          type: object
+          properties:
+            file_name:
+              type: string
+            file_md5sum:
+              type: string
+            object_id:
+              type: string
+      xml_file_name:
+        type: string
+      xml_file_size:
+        type: integer
+      xml_file_md5sum:
+        type: string
 
 
