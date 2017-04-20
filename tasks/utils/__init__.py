@@ -1,3 +1,4 @@
+import json
 
 def get_task_dict(json_string):
     try:
