@@ -2,8 +2,9 @@
 
 from utils import get_task_dict
 import json
+import sys
 
-task_dict = get_task_dict(argv[1])
+task_dict = get_task_dict(sys.argv[1])
 
 
 with open('task_json.json', 'w') as f:
