@@ -7,7 +7,7 @@ workflow:
     docker: "quay.io/junjun_zhang/ega-file-transfer-to-collab"
 
   execution:
-    constrait: same_host  # other values: 'shared_fs', 'same_worker'
+    constraint: same_host  # other values: 'shared_fs', 'same_worker'
     memory: 2g
     cpu: 1
 
