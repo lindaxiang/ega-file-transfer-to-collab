@@ -1,3 +1,4 @@
+import json
 
 def get_task_dict(json_string):
     try:
@@ -6,3 +7,8 @@ def get_task_dict(json_string):
         return {}
 
     return task_dict
+
+
+def save_output_json(output_dict={}):
+    with open('output.json', 'w') as f:
+        f.write(json.dumps(output_dict))
