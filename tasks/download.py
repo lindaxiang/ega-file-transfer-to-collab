@@ -10,7 +10,8 @@ task_dict = get_task_dict(sys.argv[1])
 task_start = int(time.time())
 
 # do the real work here
-
+for f in task_dict.get('input').get('files'):
+	echo 'this is a test file' > f.get('file_name')
 
 
 # complete the task
