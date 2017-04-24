@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from utils import get_task_dict
+from utils import get_task_dict, get_md5
 import json
 import sys
 
