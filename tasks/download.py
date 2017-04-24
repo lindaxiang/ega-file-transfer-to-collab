@@ -11,7 +11,8 @@ task_start = int(time.time())
 
 # do the real work here
 for f in task_dict.get('input').get('files'):
-	echo 'this is a test file' > f.get('file_name')
+	with open(f.get('file_name'), 'w') as l:
+		l.write('this is a test file of %s' % f.get('ega_file_id'))
 
 
 # complete the task
