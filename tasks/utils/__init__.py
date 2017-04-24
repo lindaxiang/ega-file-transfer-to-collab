@@ -13,6 +13,7 @@ def save_output_json(output_dict={}):
     with open('output.json', 'w') as f:
         f.write(json.dumps(output_dict))
 
+
 def get_md5(fname):
     hash = hashlib.md5()
     with open(fname) as f:
