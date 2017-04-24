@@ -7,8 +7,9 @@ import sys
 task_dict = get_task_dict(sys.argv[1])
 
 for f in task_dict.get('input').get('files'):
-	echo 'this is a test file' > f.get('file_name')
-	
+	with open(f.get('file_name'), 'w') as l:
+		l.write('this is a test file of %s' % f.get('ega_file_id'))
+
 with open('task_json.json', 'w') as f:
   f.write(json.dumps(task_dict))
 
