@@ -1,4 +1,5 @@
 import json
+import os
 
 def get_task_dict(json_string):
     try:
@@ -16,6 +17,7 @@ def save_output_json(output_dict={}):
 
 def get_md5(fname):
     hash = hashlib.md5()
+    if not os.path.isfile(fname): return None
     with open(fname) as f:
         for chunk in iter(lambda: f.read(1024*256), ""):
             hash.update(chunk)
