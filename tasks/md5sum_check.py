@@ -11,11 +11,11 @@ task_start = int(time.time())
 
 # do the real work here
 for f in task_dict.get('input').get('files'):
-	check_sum = get_md5(f.get('file_name'))
-	if not check_sum: 
-		task_info = 'Error: file does not exist'
-	elif not check_sum == f.get('file_md5sum'):
-		task_info = 'Error: mismatch file_md5sum'
+    check_sum = get_md5(f.get('file_name'))
+    if not check_sum: 
+	task_info = 'Error: file does not exist'
+    elif not check_sum == f.get('file_md5sum'):
+	task_info = 'Error: mismatch file_md5sum'
     else:
     	task_info = 'Pass md5sum check'
 
@@ -32,5 +32,5 @@ output_json = {
 save_output_json(output_json)
 
 if task_info.startswith('Error'):
-	sys.exit(1)
+    sys.exit(1)
 
