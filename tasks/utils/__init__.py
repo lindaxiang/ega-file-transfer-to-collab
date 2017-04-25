@@ -1,5 +1,6 @@
 import json
 import os
+import hashlib
 
 def get_task_dict(json_string):
     try:
