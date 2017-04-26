@@ -16,7 +16,7 @@ abs_file = os.path.join(os.getcwd(), task_input.get('file_name'))
 
 # need to do the real download based on input 
 with open(abs_file, 'w') as l:
-	l.write('this is a test file of %s' % f.get('ega_file_id'))
+	l.write('this is a test file of %s' % task_input.get('ega_file_id'))
 
 
 # complete the task
