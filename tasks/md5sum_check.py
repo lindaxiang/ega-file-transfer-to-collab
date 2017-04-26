@@ -36,7 +36,7 @@ output_json = {
 
 save_output_json(output_json)
 
-if randint(1,100) > 80:
+if randint(1,100) > 95:
 	sys.exit(1)
 
 sys.exit(0)

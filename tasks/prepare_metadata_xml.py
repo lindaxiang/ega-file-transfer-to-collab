@@ -43,6 +43,4 @@ output_json = {
 
 save_output_json(output_json)
 
-if randint(1,100) > 80:
-	sys.exit(1)
 
