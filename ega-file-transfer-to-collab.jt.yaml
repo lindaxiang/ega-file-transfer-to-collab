@@ -82,6 +82,9 @@ workflow:
           input:
             ega_file_id: ega_file.ega_file_id
             file_name: ega_file.file_name
+            object_id: ega_file.object_id
+            file_size: ega_file.file_size
+            file_md5sum: ega_file.file_md5sum
           depends_on: null
         md5sum_check_download:
           task: md5sum_check
@@ -169,9 +172,13 @@ tasks:
   md5sum_check:
     command: md5sum_check.py
     input:
-      file: file@download
-      file_size: ega_file.file_size
-      file_md5sum: ega_file.file_md5sum
+      file:
+        type: string
+        is_file: true
+      file_size:
+        type: string
+      file_md5sum:
+        type: string
 
   upload:
     command: upload.py
