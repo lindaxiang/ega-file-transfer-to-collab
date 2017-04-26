@@ -4,6 +4,7 @@ import os
 import sys
 import json
 import time
+from random import randint
 from utils import get_task_dict, save_output_json, get_md5
 
 task_dict = get_task_dict(sys.argv[1])
