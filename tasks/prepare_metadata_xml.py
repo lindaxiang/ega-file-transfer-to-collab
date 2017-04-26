@@ -14,7 +14,7 @@ task_start = int(time.time())
 task_input = task_dict.get('input')
 
 # build the content of xml file
-
+time.sleep(randint(1,10))
 
 
 
@@ -41,4 +41,7 @@ output_json = {
 }
 
 save_output_json(output_json)
+
+if randint(1,100) > 80:
+	sys.exit(1)
 

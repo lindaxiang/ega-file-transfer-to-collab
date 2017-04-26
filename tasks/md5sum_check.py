@@ -12,6 +12,8 @@ task_start = int(time.time())
 # do the real work here
 task_input = task_dict.get('input')
 
+time.sleep(randint(1,15))
+
 # get the md5sum for the input file
 check_sum = get_md5(task_input.get('file'))
 if not check_sum: 
@@ -32,6 +34,9 @@ output_json = {
 }
 
 save_output_json(output_json)
+
+if randint(1,100) > 80:
+	sys.exit(1)
 
 sys.exit(0)
 if task_info.startswith('Error'):

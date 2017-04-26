@@ -18,6 +18,7 @@ abs_file = os.path.join(os.getcwd(), task_input.get('file_name'))
 with open(abs_file, 'w') as l:
 	l.write('this is a test file of %s' % task_input.get('ega_file_id'))
 
+time.sleep(randint(1,20))
 
 # complete the task
 
@@ -33,3 +34,6 @@ for i in ['ega_file_id', 'file_name', 'object_id', 'file_size', 'file_md5sum']:
 	output_json.update({i: task_input.get(i)})
 
 save_output_json(output_json)
+
+if randint(1,100) > 80:
+	sys.exit(1)
